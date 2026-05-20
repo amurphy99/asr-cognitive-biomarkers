@@ -13,11 +13,11 @@ All final analysis is ran from two Jupyter notebooks (from the `notebooks/` dire
  │
  ├── core/
  │   │
-!│   ├── asr_corrupter/                     # Synthetic ASR error simulator
++│   ├── asr_corrupter/                     # Synthetic ASR error simulator
  │   │   ├── types.py                       # EditStats + ErrorProfile dataclasses
  │   │   ├── alignment.py                   # Levenshtein DP alignment + WER stats
  │   │   ├── text_utils.py                  # Normalize / tokenize helpers
- │   │   ├── corruptor.py                   # Learns error patterns and simulates corrupted text
+ │   │   ├── corruptor.py                   # Learn error patterns and simulate corrupted text
  │   │   └── generate.py                    # Generation helpers across WER targets
  │   │
 +│   ├── coherence/                         # Pragmatic Impairment biomarker
@@ -32,7 +32,7 @@ All final analysis is ran from two Jupyter notebooks (from the `notebooks/` dire
  │   │
 +│   └── perplexity/                        # Perplexity Difference biomarker
  │       ├── create_lm.py                   # Build / load n-gram language models
- │       ├── token_formatting.py            # POS / token formatting for LM input 
+ │       ├── token_formatting.py            # POS / token formatting for LM input
  │       └── ngram_perplexity.py            # N-gram perplexity calculation
  │
  └── utils/
@@ -41,7 +41,7 @@ All final analysis is ran from two Jupyter notebooks (from the `notebooks/` dire
      │
      ├── load_data/                         # Data preprocessing
      │   ├── load_by_source.py              # Load in the ASR transcripts
-     │   ├── label_speakers.py              # Levenshtein-based word alignment for speaker labels
+     │   ├── label_speakers.py              # Levenshtein-based alignment for speaker labels
      │   └── data_prep/
      │       ├── text_preprocessing.py      # Normalize, tokenize, clean utterances
      │       └── parse_transcripts.py       # Parse raw transcript formats
@@ -49,7 +49,7 @@ All final analysis is ran from two Jupyter notebooks (from the `notebooks/` dire
 +    ├── analysis/                          # Quantitative analysis
      │   ├── word_error_rate.py             # Per-participant WER (via jiwer)
      │   ├── meta_analysis.py               # Biomarker stability across WER levels
-     │   └── meta_correlation_table.py      # Biomarker--MMSE correlation & WER meta-correlation
+     │   └── meta_correlation_table.py      # Biomarker correlation & meta-correlation
      │
      ├── figures/                           # Visualizations
      │   ├── paper/                         # Figures incorporated into the paper
