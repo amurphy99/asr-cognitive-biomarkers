@@ -1,7 +1,7 @@
 """
 Setup for NLTK tokenizers/other stuff.
 --------------------------------------------------------------------------------
-`src.helpers.setup_nltk`
+`src.utils.misc.setup_nltk`
 
 """
 import nltk
