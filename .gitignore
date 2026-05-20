@@ -9,6 +9,10 @@ src/models/*
 !src/models/README.md
 !src/models/coherence_models.py
 
+src/core/coherence/models/*
+!src/core/coherence/models/README.md
+!src/core/coherence/models/coherence_models.py
+
 # Notebooks folder
 notebooks/*
 !notebooks/README.md
