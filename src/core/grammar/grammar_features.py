@@ -15,7 +15,7 @@ from .feature_extraction.syllable_features import get_syllable_counts, misc_syll
 from .feature_extraction.feature_config    import GRAMMAR_FEATURES
 
 # Per-sentence guard: skip sentences with fewer than this many tokens (e.g. lone "Yeah")
-_MIN_SENT_TOKENS = 2
+_MIN_SENT_TOKENS = 1
 
 # --------------------------------------------------------------------------------
 # Sentence-splitting on pre-computed pos_tags

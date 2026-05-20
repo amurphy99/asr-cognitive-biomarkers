@@ -1,7 +1,7 @@
 """
 Load the models required for the coherence implementation.
 --------------------------------------------------------------------------------
-`src.models.coherence_models`
+`src.core.coherence.models.coherence_models`
 
 """
 import pandas as pd
