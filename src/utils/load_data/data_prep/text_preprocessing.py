@@ -16,7 +16,7 @@ _ALLOWED_TEXT_CHARS_RE = re.compile(r"[^a-z0-9\s\.\?\!,;:'\"-]")
 _EOS_CHARACTERS: set = {".", "!", "?"}
 
 # Perplexity minimum
-MIN_UTT_WORDS_DEFAULT = 3
+from ...misc.setup_nltk import MIN_UTT_WORDS_DEFAULT
 
 
 # --------------------------------------------------------------------------------
