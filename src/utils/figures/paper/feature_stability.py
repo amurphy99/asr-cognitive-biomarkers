@@ -65,11 +65,13 @@ def calculate_feature_stability(
             t_man     = pair_data[manual_id]
             t_asr     = pair_data[system]
  
-            # Eq (3): Relative Difference d 
+            # Eq (3): Relative Difference d (modified => denominator uses |Man| + |ASR|)
             # d = (Man - ASR) / ((Man + ASR) / 2)
+            # sMAPE-style modification leaves it the same for positive values
+            # and helps keep results from zero-crossing values stay sensical.
             numerator   = t_man - t_asr
-            denominator = (t_man + t_asr) / 2.0
-            denominator = denominator.replace(0, np.nan)
+            denominator = (t_man.abs() + t_asr.abs()) / 2.0  # Original: (t_man + t_asr) / 2.0
+            denominator = denominator.replace(0, np.nan)     # Only zero if both inputs are exactly 0
  
             d_values = numerator / denominator
     
