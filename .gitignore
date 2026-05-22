@@ -14,8 +14,8 @@ src/core/coherence/models/*
 !src/core/coherence/models/coherence_models.py
 
 # Notebooks folder
-notebooks/*
-!notebooks/README.md
+#notebooks/*
+#!notebooks/README.md
 
 # VSCode
 *vscode/

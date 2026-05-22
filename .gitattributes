@@ -1,2 +1,8 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Ignore diffs from jupyter notebooks
+*.ipynb linguist-generated=true
+
+# Ignore diffs from HTML (when saved from jupyter notebooks)
+*.ipynb linguist-generated=true
