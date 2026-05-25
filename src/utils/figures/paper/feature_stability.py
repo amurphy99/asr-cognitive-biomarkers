@@ -26,6 +26,7 @@ def calculate_feature_stability(
     manual_id  : str = "Hand",   # Reference transcript source
     id_col     : str = "pID",    # Column denoting the participant ID
     src_col    : str = "srcID",  # Column denoting the transcript source (ASR method)
+    mode       : int = 0,        # Variation of the formula
     verbose    : int = 1,
 ) -> pd.DataFrame:
     """
@@ -66,15 +67,20 @@ def calculate_feature_stability(
             t_asr     = pair_data[system]
  
             # Eq (3): Relative Difference d (modified => denominator uses |Man| + |ASR|)
-            # d = (Man - ASR) / ((Man + ASR) / 2)
-            # sMAPE-style modification leaves it the same for positive values
-            # and helps keep results from zero-crossing values stay sensical.
-            numerator   = t_man - t_asr
-            denominator = (t_man.abs() + t_asr.abs()) / 2.0  # Original: (t_man + t_asr) / 2.0
-            denominator = denominator.replace(0, np.nan)     # Only zero if both inputs are exactly 0
- 
-            d_values = numerator / denominator
+            if mode == 0:
+                # d = (Man - ASR) / ((Man + ASR) / 2)
+                # sMAPE-style modification leaves it the same for positive values
+                # and helps keep results from zero-crossing values stay sensical.
+                numerator   = t_man - t_asr
+                denominator = (t_man.abs() + t_asr.abs()) / 2.0  # Original: (t_man + t_asr) / 2.0
+                denominator = denominator.replace(0, np.nan)     # Only zero if both inputs are exactly 0
     
+                d_values = numerator / denominator
+
+            # Alternate version for handling 0-centered data; removes the denominator
+            else:
+                d_values = t_man - t_asr
+        
             # Inner part of Eq (4): Mean of |d| for this system
             # (1/N) * Sum(|d_i|)
             s_k      = d_values.abs().mean()
