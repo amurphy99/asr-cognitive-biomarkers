@@ -17,7 +17,7 @@ All final analysis is ran from two Jupyter notebooks (from the `notebooks/` dire
  │   │   ├── types.py                       # EditStats + ErrorProfile dataclasses
  │   │   ├── alignment.py                   # Levenshtein DP alignment + WER stats
  │   │   ├── text_utils.py                  # Normalize / tokenize helpers
- │   │   ├── corruptor.py                   # Learn error patterns and simulate corrupted text
+ │   │   ├── corruptor.py                   # Learn error patterns and simulate them
  │   │   └── generate.py                    # Generation helpers across WER targets
  │   │
 +│   ├── coherence/                         # Pragmatic Impairment biomarker
@@ -28,7 +28,7 @@ All final analysis is ran from two Jupyter notebooks (from the `notebooks/` dire
  │   │   ├── grammar_features.py            # Grammar-based feature extraction
  │   │   ├── grammar_wrapper.py             # High-level wrapper
  │   │   ├── feature_extraction/            # POS counts, lexical richness, syllables, etc.
- │   │   └── grammar_modeling/              # ML models, cross-validation, out-fold-prediction
+ │   │   └── grammar_modeling/              # ML models, cross-validation, OOF prediction
  │   │
 +│   └── perplexity/                        # Perplexity Difference biomarker
  │       ├── create_lm.py                   # Build / load n-gram language models
